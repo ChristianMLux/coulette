@@ -1,3 +1,25 @@
 * {
   box-sizing: border-box;
 }
+html {
+  font-size: 18px;
+  font-family: "Open Sans", sans-serif;
+  margin: 0 auto;
+}
+body {
+  max-width: 70ch;
+  --bg-color: #f2f2f3;
+  --font-color-dark: #1f292e;
+  --grey: #c8cdd0;
+  --dark-grey: #415058;
+  --success: #a3db33;
+  --error: #ed3221;
+  margin: 0 auto;
+  background-color: var(--bg-color);
+  color: var(--font-color-dark);
+}
+main {
+  margin: 0 auto;
+}
+
+/*SPECIFIC*/
