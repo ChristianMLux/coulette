@@ -36,8 +36,8 @@ function changeColor() {
   let colorValue = document.querySelector("#colorCode");
   colorValue.textContent = color;
 
-  let header = document.querySelector("header");
-  header.style.backgroundColor = color;
+  let colorPreview = document.querySelector("#colorPreview");
+  colorPreview.style.backgroundColor = color;
 }
 
 /**Save the colors the user choose */
@@ -53,10 +53,10 @@ function saveColor() {
 }
 
 /**first color */
-let header = document.querySelector("header");
-let currentColor = header.style.backgroundColor.toLocaleLowerCase();
+let colorPreview = document.querySelector("#colorPreview");
+let currentColor = colorPreview.style.backgroundColor.toLocaleLowerCase();
 if (currentColor !== null) {
-  header.style.backgroundColor = changeColor;
+  colorPreview.style.backgroundColor = changeColor;
 } else {
   console.log("works fine.");
 }

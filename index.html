@@ -19,11 +19,15 @@
     <header class="main-header">
       <h1 class="main-heading">Coulette</h1>
       <p class="main-subheading">Your RandomColorPicker</p>
-      <button class="button" id="generateColorBtn">Generate Color</button>
-      <button class="button" id="saveColorBtn">Safe Color</button>
-      <p id="colorCode" class="color-code-p"></p>
     </header>
     <main>
+      <button class="btn" id="generateColorBtn">Generate Color</button>
+      <button class="btn" id="saveColorBtn">Safe Color</button>
+      <div id="colorPreviewWrapper" class="color-preview-wrapper">
+        <div id="colorPreview" class="color-preview">
+          <p class="color-code-p" id="colorCode"></p>
+        </div>
+      </div>
       <ul id="colorList"></ul>
     </main>
     <script src="script.js"></script>
