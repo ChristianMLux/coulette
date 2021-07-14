@@ -33,11 +33,23 @@ function randomHexColor() {
 function changeColor() {
   let color = randomHexColor();
 
-  let colorValue = document.querySelector("#color-code");
+  let colorValue = document.querySelector("#colorCode");
   colorValue.textContent = color;
 
   let header = document.querySelector("header");
   header.style.backgroundColor = color;
+}
+
+/**Save the colors the user choose */
+function saveColor() {
+  let colorValue = document.querySelector("#colorCode");
+  let color = colorValue.innerText;
+  const colorList = document.querySelector("#colorList");
+
+  let savedColor = document.createElement("li");
+  savedColor.innerText = color;
+  savedColor.style.backgroundColor = color;
+  colorList.appendChild(savedColor);
 }
 
 /**first color */
@@ -55,4 +67,11 @@ if (generateColorBtn) {
   generateColorBtn.addEventListener("click", changeColor);
 } else {
   console.log("sorry, there is something wrong with your btn name");
+}
+
+const saveColorBtn = document.querySelector("#saveColorBtn");
+if (saveColorBtn) {
+  saveColorBtn.addEventListener("click", saveColor);
+} else {
+  console.log("sorry, there might be a problem with your btn name");
 }
