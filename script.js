@@ -1,19 +1,58 @@
 let welcome = "Welcome to coulette";
 console.log(welcome);
+/**
+ * Toggle color of header
+ * Generate random number between min and max
+ */
+function randomNumber(min, max) {
+  const num = Math.random() * (max - min + 1) + min;
+  return Math.floor(num);
+}
+/**
+ * Generate random hex number for color
+ */
+function randomHexNumber() {
+  let hex = randomNumber(0, 255).toString(16);
+  if (hex.length === 1) {
+    hex = "0" + hex;
+  }
+  return hex;
+}
+/**
+ * Generate random hex color
+ */
+function randomHexColor() {
+  const red = randomHexNumber();
+  const green = randomHexNumber();
+  const blue = randomHexNumber();
 
-const changeColorBtn = document.querySelector("#changeColorBtn");
+  return ("#" + red + green + blue).toUpperCase();
+}
 
-if (changeColorBtn) {
-  changeColorBtn.addEventListener("click", function () {
-    const color = "orange";
-    const header = document.querySelector("header");
-    const currentBGColor = header.style.backgroundColor.toLowerCase();
-    if (currentBGColor !== "orange") {
-      header.style.backgroundColor = color;
-    } else {
-      header.style.backgroundColor = null;
-    }
-  });
+/**Use the generated color to change the bgcolor of the header */
+function changeColor() {
+  let color = randomHexColor();
+
+  let colorValue = document.querySelector("#color-code");
+  colorValue.textContent = color;
+
+  let header = document.querySelector("header");
+  header.style.backgroundColor = color;
+}
+
+/**first color */
+let header = document.querySelector("header");
+let currentColor = header.style.backgroundColor.toLocaleLowerCase();
+if (currentColor !== null) {
+  header.style.backgroundColor = changeColor;
 } else {
-  console.error("sorry, can't find the button, please check the name again");
+  console.log("works fine.");
+}
+
+/**generateColorBtn */
+const generateColorBtn = document.querySelector("#generateColorBtn");
+if (generateColorBtn) {
+  generateColorBtn.addEventListener("click", changeColor);
+} else {
+  console.log("sorry, there is something wrong with your btn name");
 }
