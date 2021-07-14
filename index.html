@@ -12,15 +12,16 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
-    <script src="script.js"></script>
     <title>Coulette</title>
   </head>
   <body>
+    <link rel="stylesheet" href="style.css" />
     <header class="main-header">
       <h1 class="main-heading">Coulette</h1>
       <p class="main-subheading">Your RandomColorPicker</p>
-      <button id="generate-color">Generate Color</button>
-      <button id="safe-color">Safe Color</button>
+      <button class="button" id="changeColorBtn">ChangeColor</button>
+      <button class="button" id="generateColorBtn">Generate Color</button>
+      <button id="safeColorBtn">Safe Color</button>
       <p class="color-code"></p>
     </header>
     <main>
@@ -29,4 +30,5 @@
       </ul>
     </main>
   </body>
+  <script src="script.js"></script>
 </html>
