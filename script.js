@@ -153,13 +153,12 @@ function readColorsInLocal() {
 readColorsInLocal();
 
 /**generate link to coolors */
-
 function generateColorLink() {
   let colorVal = document.querySelector("#colorCode");
   //creating the anchor
   var a = document.createElement("a");
   //creating next element
-  var link = document.createTextNode("go to coolors #" + colorValueWithoutHash);
+  var link = document.createTextNode("let's see the color on coolors.co");
   // anchor to element
   a.appendChild(link);
   // link title
@@ -170,3 +169,6 @@ function generateColorLink() {
   // anchor to body
   document.querySelector("#colorPreview").appendChild(a);
 }
+
+/**delete old link */
+function deleteColorLink() {}

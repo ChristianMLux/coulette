@@ -89,12 +89,18 @@ header {
 }
 
 .color-preview > a {
-  color: white;
-  margin-left: 2rem;
+  display: none;
   font-weight: bold;
+  color: var(--font-color-dark);
+  margin-left: 2rem;
+  padding: 0.25rem;
   background-color: var(--grey);
   opacity: 0.7;
   border-radius: 0.25rem 0.5rem 0.25rem 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.color-preview > a:last-of-type {
+  display: flex;
 }
 
 .color-code-p {
