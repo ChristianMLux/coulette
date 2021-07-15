@@ -52,8 +52,15 @@ header {
   cursor: pointer;
   transition: 0.25s ease-in-out;
 }
+
+.btn:disabled {
+  background-color: var(--grey);
+}
 .btn:hover {
   background-color: var(--success);
+}
+.btn:disabled:hover {
+  background-color: var(--error);
 }
 
 .color-preview-wrapper {
