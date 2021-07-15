@@ -157,6 +157,7 @@ function generateColorLink() {
   let colorVal = document.querySelector("#colorCode");
   //creating the anchor
   var a = document.createElement("a");
+  a.setAttribute("target", "_blank");
   //creating next element
   var link = document.createTextNode("let's see the color on coolors.co");
   // anchor to element
@@ -169,6 +170,3 @@ function generateColorLink() {
   // anchor to body
   document.querySelector("#colorPreview").appendChild(a);
 }
-
-/**delete old link */
-function deleteColorLink() {}
