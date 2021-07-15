@@ -1,5 +1,9 @@
 let welcome = "Welcome to coulette";
 console.log(welcome);
+/**Gloval Variables */
+const colors = [];
+let currentColor = undefined;
+
 /**
  * Toggle color of header
  * Generate random number between min and max
@@ -28,38 +32,32 @@ function randomHexColor() {
 
   return ("#" + red + green + blue).toUpperCase();
 }
-
 /**Use the generated color to change the bgcolor of the header */
 function changeColor() {
-  let color = randomHexColor();
+  currentColor = randomHexColor();
 
   let colorValue = document.querySelector("#colorCode");
-  colorValue.textContent = color;
+  colorValue.textContent = currentColor;
 
   let colorPreview = document.querySelector("#colorPreview");
-  colorPreview.style.backgroundColor = color;
+  colorPreview.style.backgroundColor = currentColor;
 }
 
 /**Save the colors the user choose */
 function saveColor() {
-  let colorValue = document.querySelector("#colorCode");
-  let color = colorValue.innerText;
-  const colorList = document.querySelector("#colorList");
-
-  let savedColor = document.createElement("li");
-  savedColor.innerText = color;
-  savedColor.style.backgroundColor = color;
-  colorList.appendChild(savedColor);
+  if (!colors.includes(currentColor)) {
+    colors.push(currentColor);
+    const colorList = document.querySelector("#colorList");
+    const savedColor = document.createElement("li");
+    savedColor.innerText = currentColor;
+    savedColor.style.backgroundColor = currentColor;
+    colorList.appendChild(savedColor);
+  } else {
+    console.log("error: please check the function saveColor");
+  }
 }
 
-/**first color */
-let colorPreview = document.querySelector("#colorPreview");
-let currentColor = colorPreview.style.backgroundColor.toLocaleLowerCase();
-if (currentColor !== null) {
-  colorPreview.style.backgroundColor = changeColor;
-} else {
-  console.log("works fine.");
-}
+changeColor();
 
 /**generateColorBtn */
 const generateColorBtn = document.querySelector("#generateColorBtn");
@@ -68,7 +66,7 @@ if (generateColorBtn) {
 } else {
   console.log("sorry, there is something wrong with your btn name");
 }
-
+/**saveColorBtn */
 const saveColorBtn = document.querySelector("#saveColorBtn");
 if (saveColorBtn) {
   saveColorBtn.addEventListener("click", saveColor);
