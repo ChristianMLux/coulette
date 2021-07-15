@@ -5,6 +5,8 @@ const colors = [];
 let currentColor = undefined;
 const saveColorBtn = document.querySelector("#saveColorBtn");
 
+const colorList = document.querySelector("#colorList");
+
 /**
  * Toggle color of header
  * Generate random number between min and max
@@ -50,12 +52,16 @@ function changeColor() {
 function saveColor() {
   if (!colors.includes(currentColor)) {
     colors.push(currentColor);
-    const colorList = document.querySelector("#colorList");
 
     const savedColor = document.createElement("li");
     savedColor.innerText = currentColor;
     savedColor.style.backgroundColor = currentColor;
 
+    const deleteButton = document.createElement("button");
+    deleteButton.innerText = "Delete Color";
+    deleteButton.classList.add("deleteBtn");
+
+    savedColor.appendChild(deleteButton);
     colorList.appendChild(savedColor);
 
     checkSaveBtnState();
@@ -90,4 +96,23 @@ function checkSaveBtnState() {
     saveColorBtn.removeAttribute("disabled");
     console.log("changed state to enabled");
   }
+}
+
+/**Delete Color from list */
+colorList.addEventListener("click", function (e) {
+  const tagName = e.target.tagName.toLowerCase();
+  if (tagName === "button") {
+    const listItem = e.target.parentElement;
+    const color = listItem.getAttribute("color");
+
+    deleteColor(color);
+    colorList.removeChild(listItem);
+  }
+});
+
+/**Delete Color from array*/
+function deleteColor(color) {
+  const i = colors.indexOf(color);
+  colors.splice(i, 1);
+  checkSaveBtnState();
 }
