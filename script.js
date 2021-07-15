@@ -4,7 +4,7 @@ console.log(welcome);
 const colors = [];
 let currentColor = undefined;
 const saveColorBtn = document.querySelector("#saveColorBtn");
-
+let colorValueWithoutHash = null;
 const colorList = document.querySelector("#colorList");
 
 const storageKey = "colors";
@@ -35,6 +35,8 @@ function randomHexColor() {
   const green = randomHexNumber();
   const blue = randomHexNumber();
 
+  colorValueWithoutHash = red + green + blue.toLocaleUpperCase();
+
   return ("#" + red + green + blue).toUpperCase();
 }
 
@@ -49,11 +51,13 @@ function changeColor() {
   colorPreview.style.backgroundColor = currentColor;
 
   checkSaveBtnState();
+  generateColorLink();
 }
 
 /**Initial Color Change */
 changeColor();
 
+/**Create Listitem for colors */
 function createColorListItem(color) {
   const newColor = document.createElement("li");
   newColor.innerText = color;
@@ -75,16 +79,6 @@ function saveColor() {
     createColorListItem(currentColor);
     checkSaveBtnState();
     saveColorsInLocal();
-    //const savedColor = document.createElement("li");
-    //savedColor.innerText = currentColor;
-    //savedColor.style.backgroundColor = currentColor;
-
-    //const deleteButton = document.createElement("button");
-    //deleteButton.innerText = "Delete Color";
-    //deleteButton.classList.add("deleteBtn");
-
-    //savedColor.appendChild(deleteButton);
-    //colorList.appendChild(savedColor);
   } else {
     console.log("Error: this color is already saved");
   }
@@ -97,6 +91,7 @@ if (generateColorBtn) {
 } else {
   console.log("sorry, there is something wrong with your btn name");
 }
+
 /**saveColorBtn */
 if (saveColorBtn) {
   saveColorBtn.addEventListener("click", saveColor);
@@ -155,5 +150,23 @@ function readColorsInLocal() {
 }
 
 /**load local storage */
-
 readColorsInLocal();
+
+/**generate link to coolors */
+
+function generateColorLink() {
+  let colorVal = document.querySelector("#colorCode");
+  //creating the anchor
+  var a = document.createElement("a");
+  //creating next element
+  var link = document.createTextNode("go to coolors #" + colorValueWithoutHash);
+  // anchor to element
+  a.appendChild(link);
+  // link title
+  a.title = "#" + colorValueWithoutHash;
+  // set link path
+  a.href = "https://coolors.co/" + colorValueWithoutHash;
+  console.log("https://coolors.co/" + colorValueWithoutHash);
+  // anchor to body
+  document.querySelector("#colorPreview").appendChild(a);
+}
