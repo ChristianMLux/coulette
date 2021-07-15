@@ -54,7 +54,8 @@ header {
 }
 
 .btn:disabled {
-  background-color: var(--grey);
+  background-color: var(--dark-grey);
+  color: var(--grey);
 }
 .btn:hover {
   background-color: var(--success);
