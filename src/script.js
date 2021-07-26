@@ -63,9 +63,11 @@ function createColorListItem(color) {
   newColor.innerText = color;
   newColor.style.backgroundColor = color;
   newColor.setAttribute("data-color", color);
+  newColor.setAttribute("data-cy", "colorLi");
 
   const deleteBtn = document.createElement("button");
   deleteBtn.innerText = "Delete Color";
+  deleteBtn.setAttribute("data-cy", "deleteBtn");
   deleteBtn.classList.add("deleteBtn");
 
   newColor.appendChild(deleteBtn);

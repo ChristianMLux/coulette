@@ -21,14 +21,22 @@
       <p class="main-subheading">Your RandomColorPicker</p>
     </header>
     <main>
-      <button class="btn" id="generateColorBtn">Generate Color</button>
-      <button class="btn" id="saveColorBtn">Save Color</button>
-      <div id="colorPreviewWrapper" class="color-preview-wrapper">
-        <div id="colorPreview" class="color-preview">
-          <p class="color-code-p" id="colorCode"></p>
+      <button class="btn" id="generateColorBtn" data-cy="generateColorBtn">
+        Generate Color
+      </button>
+      <button class="btn" id="saveColorBtn" data-cy="saveColorBtn">
+        Save Color
+      </button>
+      <div
+        class="color-preview-wrapper"
+        id="colorPreviewWrapper"
+        data-cy="colorPreviewWrapper"
+      >
+        <div class="color-preview" id="colorPreview" data-cy="colorPreview">
+          <p class="color-code-p" id="colorCode" data-cy="colorCode"></p>
         </div>
       </div>
-      <ul id="colorList"></ul>
+      <ul id="colorList" data-cy="colorList"></ul>
     </main>
     <script src="script.js"></script>
   </body>

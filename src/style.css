@@ -1,3 +1,7 @@
+/*textdecoration None in * 
+margin und padding evtl auch 
+*/
+
 * {
   box-sizing: border-box;
 }
@@ -14,10 +18,11 @@ body {
   --dark-grey: #4d5b63;
   --success: #a3db33;
   --error: #ed3221;
-  margin: 0 auto;
   background-color: var(--bg-color);
   color: var(--font-color-dark);
+  margin: 0 auto;
 }
+
 main {
   margin: 0 auto;
 }
