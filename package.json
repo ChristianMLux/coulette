@@ -2,9 +2,8 @@
   "name": "coulette",
   "version": "1.0.0",
   "description": "generate and safe random colors with link to coolors",
-  "main": "",
   "scripts": {
-    "serve": "serve ./src",
+    "devserver": "serve ./src",
     "e2e": "cypress open",
     "e2e:ci": "cypress run"
   },
